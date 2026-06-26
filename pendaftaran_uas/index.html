@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendaftaran Mahasiswa Baru</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/additional-methods.min.js"></script>
+    <script src="js/script.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div id="boxForm">
+            <h2>Form Pendaftaran Mahasiswa</h2>
+            <form id="formPendaftaran" method="POST" action="proses_pendaftaran.php" enctype="multipart/form-data">
+                
+                <div class="form-group">
+                    <label for="nim">NIM</label>
+                    <input type="text" id="nim" name="nim">
+                </div>
+
+                <div class="form-group">
+                    <label for="nama">Nama Lengkap</label>
+                    <input type="text" id="nama" name="nama">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email">
+                </div>
+
+                <div class="form-group">
+                    <label for="nohp">Nomor HP</label>
+                    <input type="text" id="nohp" name="nohp">
+                </div>
+
+                <div class="form-group">
+                    <label>Jenis Kelamin</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="jk" value="Laki-laki"> Laki-laki</label>
+                        <label><input type="radio" name="jk" value="Perempuan"> Perempuan</label>
+                    </div>
+                    <div id="error-jk"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="prodi">Program Studi</label>
+                    <select id="prodi" name="prodi">
+                        <option value="">-- Pilih Program Studi --</option>
+                        <option value="Teknik Informatika">Teknik Informatika</option>
+                        <option value="Sistem Informasi">Sistem Informasi</option>
+                        <option value="Manajemen Informatika">Manajemen Informatika</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="alamat">Alamat Lengkap</label>
+                    <textarea id="alamat" name="alamat" rows="3"></textarea>
+                </div>
+
+                <div class="form-group-foto">
+                    <div class="foto-input-box">
+                        <div class="custom-upload-card">
+                            <p class="upload-info">Foto Mahasiswa (JPG/PNG, Maks 2MB)</p>
+                            <div class="upload-action-row">
+                                <input type="file" id="foto" name="foto" style="display: none;">
+                                <button type="button" class="btn-custom-upload" onclick="$('#foto').click();">Pilih Foto</button>
+                                <span id="namaFileSelected">Tidak ada file dipilih</span>
+                            </div>
+                        </div>
+                        <div id="error-foto"></div>
+                    </div>
+                    <div class="foto-preview-box">
+                        <img id="previewFoto" src="" alt="Preview">
+                    </div>
+                </div>
+
+                <div class="btn-action-group">
+                    <button type="submit" id="btnDaftar">Daftar Sekarang</button>
+                    <button type="button" id="btnReset">Reset</button>
+                </div>
+
+                <input type="hidden" id="foto_lama" name="foto_lama" value="">
+
+            </form>
+        </div>
+
+        <div id="boxCard" class="card-summary">
+            <h3>Data Pendaftaran</h3>
+            <hr>
+            <div class="card-content">
+                <div class="card-photo">
+                    <img id="cardPreviewFoto" src="" alt="Foto Card">
+                </div>
+                <table class="table-summary">
+                    <tr><td><strong>NIM</strong></td><td>:</td><td id="resNim"></td></tr>
+                    <tr><td><strong>Nama</strong></td><td>:</td><td id="resNama"></td></tr>
+                    <tr><td><strong>Email</strong></td><td>:</td><td id="resEmail"></td></tr>
+                    <tr><td><strong>No. HP</strong></td><td>:</td><td id="resNoHp"></td></tr>
+                    <tr><td><strong>Jenis Kelamin</strong></td><td>:</td><td id="resJk"></td></tr>
+                    <tr><td><strong>Prodi</strong></td><td>:</td><td id="resProdi"></td></tr>
+                    <tr><td><strong>Alamat</strong></td><td>:</td><td id="resAlamat"></td></tr>
+                </table>
+            </div>
+            <hr>
+            <div class="btn-action-group">
+                <button type="button" id="btnEdit">Edit Data</button>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

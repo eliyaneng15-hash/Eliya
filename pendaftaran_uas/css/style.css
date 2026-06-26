@@ -1,0 +1,260 @@
+:root {
+    --primary-glow: indigo;       /* Menggunakan nama warna langsung */
+    --success-glow: indigo;       
+    --danger-glow: crimson;       /* Warna merah cerah untuk error */
+    --bg-dark: black;             
+    --bg-light: whitesmoke;       /* Abu-abu sangat muda/off-white */
+    --border-smooth: lightgray;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    background-color: white;
+    background-image: radial-gradient(lightgray 1px, transparent 1px);
+    background-size: 24px 24px;
+    margin: 0;
+    padding: 40px 0;
+    color: var(--bg-dark);
+}
+
+.container {
+    max-width: 580px;
+    margin: 0 auto;
+    background: white;
+    padding: 35px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Menggunakan black dengan transparansi kecil */
+    border: 1px solid var(--border-smooth);
+}
+
+h2, h3 {
+    text-align: center;
+    color: var(--bg-dark);
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 24px;
+}
+
+h2::after, h3::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 4px;
+    background: var(--primary-glow);
+    border-radius: 2px;
+    margin: 8px auto 0 auto; 
+}
+
+h3::after {
+    background: var(--success-glow);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: dimgray;               /* Warna abu-abu teks label */
+    font-size: 13px;
+    letter-spacing: 0.5px;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1.5px solid var(--border-smooth);
+    border-radius: 10px;
+    font-size: 14px;
+    color: var(--bg-dark);
+    background-color: snow;       /* Putih bersih sedikit lembut */
+    box-sizing: border-box;
+    transition: all 0.25s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary-glow);
+    background-color: white;
+    box-shadow: 0 0 0 4px lightsteelblue; /* Efek fokus biru-abu muda */
+}
+
+.radio-group {
+    display: flex;
+    gap: 15px;
+    padding: 5px 0;
+}
+
+.radio-group label {
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    background: var(--bg-light);
+    padding: 10px 16px;
+    border-radius: 10px;
+    border: 1.5px solid var(--border-smooth);
+    font-size: 14px;
+}
+
+.form-group-foto {
+    display: flex;
+    gap: 24px;
+    align-items: stretch;
+    margin-bottom: 25px;
+}
+
+.foto-input-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.custom-upload-card {
+    background: var(--bg-light);
+    border: 2px dashed darkgray;
+    border-radius: 12px;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.upload-info {
+    margin: 0 0 14px 0;
+    font-size: 13px;
+    color: gray;
+}
+
+.btn-custom-upload {
+    background-color: var(--bg-dark);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#namaFileSelected {
+    font-size: 12px;
+    color: gray;
+    display: block;
+    margin-top: 5px;
+}
+
+.foto-preview-box {
+    width: 110px;
+    display: flex;
+    align-items: center;
+}
+
+#previewFoto, #cardPreviewFoto {
+    width: 110px;
+    height: 146px;
+    object-fit: cover;
+    border: 2px solid white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: var(--bg-light);
+    border-radius: 8px;
+}
+
+.btn-action-group {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+button {
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+#btnDaftar { 
+    background: var(--primary-glow); 
+    color: white; 
+    flex: 2; 
+}
+
+#btnReset { 
+    background: black; 
+    color: white; 
+    flex: 1; 
+}
+
+#btnEdit { 
+    background: black; 
+    color: white;
+    flex: 1;
+    width: 100%;
+}
+
+label.error {
+    color: var(--danger-glow);
+    font-size: 12px;
+    font-weight: 500;
+    margin-top: 6px;
+    display: block;
+}
+
+input.error, select.error, textarea.error { 
+    border-color: var(--danger-glow) !important; 
+    background: mistyrose;        /* Warna merah muda pastel jika error */
+}
+
+input.valid, select.valid, textarea.valid { 
+    border-color: darkgreen !important; 
+    background: honeydew;         /* Warna hijau muda pastel jika sukses validasi */
+}
+
+/* ==================== CARD SUMMARY STYLE ==================== */
+.card-summary {
+    display: none;
+    background: white;
+    border: 2px solid var(--primary-glow);
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+}
+
+.card-content {
+    display: flex;
+    gap: 24px;
+    margin: 20px 0;
+    align-items: center;
+}
+
+.table-summary {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-summary td {
+    padding: 8px 4px;
+    font-size: 14px;
+    color: darkslategray;          /* Warna teks abu gelap kebiruan */
+}
+
+.table-summary td strong {
+    color: gray;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
